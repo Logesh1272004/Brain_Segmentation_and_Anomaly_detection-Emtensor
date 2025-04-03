@@ -124,7 +124,7 @@ For **brain tissue segmentation** using **Gaussian Mixture Models (GMM)**, the p
 ### Model: **2D UNET**
 
 For the brain segmentation task, a **2D UNET** architecture is used. UNET is a popular deep learning model architecture for image segmentation, especially in medical imaging tasks. The 2D version of the UNET is applied to **2D slices** extracted from 3D MRI scans.
-![U-net_Arc](./images/output_gmm_segmented_no437.png)
+![U-net_Arc](./Images/u-net-architecture.png)
 
 ### Key Features:
 - **Encoder-Decoder Architecture**: The model consists of an encoder that captures context and a decoder that enables precise localization.
