@@ -124,6 +124,7 @@ For **brain tissue segmentation** using **Gaussian Mixture Models (GMM)**, the p
 ### Model: **2D UNET**
 
 For the brain segmentation task, a **2D UNET** architecture is used. UNET is a popular deep learning model architecture for image segmentation, especially in medical imaging tasks. The 2D version of the UNET is applied to **2D slices** extracted from 3D MRI scans.
+![U-net_Arc](./images/output_gmm_segmented_no437.png)
 
 ### Key Features:
 - **Encoder-Decoder Architecture**: The model consists of an encoder that captures context and a decoder that enables precise localization.
@@ -142,6 +143,7 @@ For the brain segmentation task, a **2D UNET** architecture is used. UNET is a p
 ### Model: **EfficientNet-B0**
 
 For anomaly detection, the **EfficientNet-B0** model is employed. EfficientNet is a state-of-the-art convolutional neural network (CNN) architecture that is highly efficient and effective for image classification tasks.
+![Effi_Arc](./images/output_gmm_segmented_no437.png)
 
 ### Key Features:
 - **Transfer Learning**: EfficientNet-B0 is used with **pre-trained weights** from the ImageNet dataset, leveraging transfer learning to boost performance.
@@ -161,6 +163,7 @@ For anomaly detection, the **EfficientNet-B0** model is employed. EfficientNet i
 ### Model: **Gaussian Mixture Model (GMM)**
 
 For brain tissue segmentation, the **Gaussian Mixture Model (GMM)** is used. This is an unsupervised machine learning model that assumes all data points (in this case, image pixels) are generated from a mixture of several Gaussian distributions.
+![Gau_Arc](./images/output_gmm_segmented_no437.png)
 
 ### Key Features:
 - **Unsupervised Learning**: GMM is an unsupervised model, meaning it does not require labeled data for training. It clusters the data into different categories based on pixel intensity.
