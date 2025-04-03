@@ -51,4 +51,73 @@ This dataset consists of **single 2D brain MRI images** used for **tissue segmen
   - **CSF** (Cerebrospinal Fluid)
 - The goal is to identify and segment different tissue types in the brain using this **unsupervised method**.
 
+# Preprocessing
+
+## 1. Preprocessing for Brain Segmentation using 2D UNET
+
+### Dataset Preprocessing:
+The preprocessing steps for the **3D MRI scans** focus on extracting 2D slices and normalizing the images for the **2D UNET model**.
+
+### Steps:
+1. **Loading Data:**
+   - MRI scans in **NIfTI format** (`.nii`) are loaded using the **`nibabel`** library.
+2. **Extracting 2D Slices:**
+   - The 3D volume is sliced into individual 2D slices along the z-axis (depth).
+3. **Data Augmentation:**
+   - Random transformations are applied to the data to augment the training set and improve model generalization.
+   - Augmentations may include rotation, flipping, and intensity adjustments.
+4. **Normalization:**
+   - Images are normalized to a range suitable for training, with pixel intensity values typically normalized to [0, 1].
+5. **Resizing:**
+   - Each 2D slice is resized to a specific size (e.g., **128x128 pixels**) for input into the UNET model.
+
+---
+
+## 2. Preprocessing for Brain Anomaly Detection using EfficientNet-B0
+
+The preprocessing steps for the **MRI images** are designed to prepare the data for efficient training of the **EfficientNet-B0** model.
+
+### Steps:
+1. **Loading Data:**
+   - MRI images (typically in **JPEG** or **PNG** format) are loaded into memory.
+2. **Resizing:**
+   - Each image is resized to **224x224 pixels** to match the input size of **EfficientNet-B0**.
+3. **Data Augmentation:**
+   - Augmentations are applied to the training set to improve the model's ability to generalize:
+     - Random horizontal flipping
+     - Random rotations
+     - Adjusting brightness/contrast
+4. **Normalization:**
+   - Pixel values are normalized using **ImageNet statistics**:
+     - **Mean**: [0.485, 0.456, 0.406]
+     - **Std Dev**: [0.229, 0.224, 0.225]
+5. **Dataset Split:**
+   - The dataset is divided into training and testing sets, where training images are used to train the model and testing images are used for evaluation.
+
+---
+
+## 3. Preprocessing for Brain Segmentation using Gaussian Mixture Model (GMM)
+
+For **brain tissue segmentation** using **Gaussian Mixture Models (GMM)**, the preprocessing steps focus on transforming the 2D MRI images into a suitable format for unsupervised learning.
+
+### Steps:
+1. **Loading Data:**
+   - 2D MRI images (in **JPEG**, **PNG**, or similar formats) are loaded using the **`skimage`** library.
+2. **Grayscale Conversion:**
+   - The MRI images are converted to **grayscale** for simplifying segmentation.
+3. **Flattening:**
+   - The 2D grayscale image is **flattened** into a 1D array, which is required for applying GMM.
+4. **Gaussian Mixture Model (GMM):**
+   - A **Gaussian Mixture Model** is fitted to the 1D flattened image.
+   - GMM is used to classify the image pixels into **three clusters**:
+     - **Gray matter**
+     - **White matter**
+     - **Cerebrospinal Fluid (CSF)**
+5. **Reshaping for Visualization:**
+   - After the GMM classification, the pixel labels are reshaped back into the original image dimensions for visualization purposes.
+
+---
+
+
+
 
