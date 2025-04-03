@@ -176,6 +176,65 @@ For brain tissue segmentation, the **Gaussian Mixture Model (GMM)** is used. Thi
 - After clustering, the results are reshaped into the original 2D image format for visualization.
 
 ---
+# Output for Brain Segmentation using 2D UNET
+
+### Output: **Segmented Brain MRI Images**
+
+The output of the **2D UNET** model is a **segmented version** of the input MRI images. The model produces a mask highlighting the segmented regions, such as **gray matter**, **white matter**, and **CSF** (cerebrospinal fluid).
+
+
+### Explanation:
+- The segmented images are saved in **PNG format**, where the regions of interest (gray matter, white matter, CSF) are highlighted in different colors.
+- These masks are overlayed on the original MRI slices to visualize the segmentation.
+- The **Dice Score** or other performance metrics can be calculated by comparing the predicted masks with ground truth annotations.
+
+### Example Output Visualization:
+
+- **Original MRI Image** vs **Segmented Image**:
+
+  ![Original vs Segmented Example](./images/output_segmented_subject_001.png)
+
+- **Ground Truth** (if available) and **Predicted Segmentation Mask**: These are compared to visualize the model’s accuracy.
+
+  ![Ground Truth vs Predicted Segmentation](./images/output_segmented_subject_002.png)
+
+# Output for Brain Anomaly Detection using EfficientNet-B0
+
+### Output: **Classification Results** (Normal vs Anomalous)
+
+The output of the **EfficientNet-B0** model is a **classification result** for each MRI image in the test set, identifying the condition (e.g., **Alzheimer's Disease**, **Cognitively Normal**, **Tumor**, etc.).
+
+### Example Output Files:
+![Confusion Matrix Example](./images/output_confusion_matrix.png)
+![Loss/Accuracy Curve Example](./images/output_loss_accuracy_curve.png)
+
+# Output for Brain Segmentation using Gaussian Mixture Model (GMM)
+
+### Output: **Segmented Brain Tissue Types** (Gray Matter, White Matter, CSF)
+
+The output of the **Gaussian Mixture Model (GMM)** is a segmented version of the MRI image where the brain tissues (gray matter, white matter, and CSF) are classified into different regions.
+
+### Example Output Files:
+
+### Explanation:
+- The GMM model assigns each pixel in the MRI image to one of the three tissue types: **gray matter**, **white matter**, or **CSF**.
+- The output images are saved in **PNG format**, where each pixel is labeled with its respective tissue type (often represented by different colors).
+- These segmented outputs are visualized by overlaying the tissue classification on the original MRI slice.
+
+### Example Output Visualizations:
+
+- **Original MRI Image** vs **Segmented Image**: The segmented image shows the regions identified as **gray matter**, **white matter**, and **CSF**.
+
+  ![Original vs Segmented Example](./images/output_gmm_segmented_no437.png)
+
+- **Clustered Image**: The image is divided into clusters, each representing a different tissue type. The final segmentation helps visualize the brain’s tissue structure.
+
+  ![Clustered Image Example](./images/output_gmm_segmented_y232.png)
+
+### Example Directory Structure for Output Files:
+
+
+
 
 
 
