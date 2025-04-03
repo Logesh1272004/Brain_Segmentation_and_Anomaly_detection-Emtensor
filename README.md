@@ -195,7 +195,7 @@ The output of the **2D UNET** model is a **segmented version** of the input MRI 
 
 - **Original MRI Image** vs **Segmented Image**:
 
-  ![Original vs Segmented Example](./Images/normal.jpg)
+  
 
 - **Ground Truth** (if available) and **Predicted Segmentation Mask**: These are compared to visualize the model’s accuracy.
 
@@ -238,7 +238,7 @@ The output of the **Gaussian Mixture Model (GMM)** is a segmented version of the
  ![Ground Truth vs Predicted Segmentation](./Images/seg_img2.jpg)
 
 
-### Example Directory Structure for Output Files:
+
 
 
 
