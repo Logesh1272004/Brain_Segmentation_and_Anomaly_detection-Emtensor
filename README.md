@@ -116,7 +116,68 @@ For **brain tissue segmentation** using **Gaussian Mixture Models (GMM)**, the p
 5. **Reshaping for Visualization:**
    - After the GMM classification, the pixel labels are reshaped back into the original image dimensions for visualization purposes.
 
+---  
+# Model Selection
+
+## 1. Model for Brain Segmentation using 2D UNET
+
+### Model: **2D UNET**
+
+For the brain segmentation task, a **2D UNET** architecture is used. UNET is a popular deep learning model architecture for image segmentation, especially in medical imaging tasks. The 2D version of the UNET is applied to **2D slices** extracted from 3D MRI scans.
+
+### Key Features:
+- **Encoder-Decoder Architecture**: The model consists of an encoder that captures context and a decoder that enables precise localization.
+- **Skip Connections**: Skip connections are used to pass high-resolution features from the encoder to the decoder, preserving spatial information.
+- **Loss Function**: **Dice Loss** is used to optimize the segmentation performance. This loss function is specifically designed for imbalanced segmentation tasks like medical imaging, where the target regions (e.g., brain tissues) are relatively small compared to the entire image.
+
+### Training:
+- The **UNET** model is trained using the **MONAI** library, which provides ready-to-use implementations for medical image analysis.
+- **Optimizer**: Adam optimizer is used to update the model's weights during training.
+- **Batch Size**: A batch size of 16 or 32 is typically used depending on available resources.
+
 ---
+
+## 2. Model for Brain Anomaly Detection using EfficientNet-B0
+
+### Model: **EfficientNet-B0**
+
+For anomaly detection, the **EfficientNet-B0** model is employed. EfficientNet is a state-of-the-art convolutional neural network (CNN) architecture that is highly efficient and effective for image classification tasks.
+
+### Key Features:
+- **Transfer Learning**: EfficientNet-B0 is used with **pre-trained weights** from the ImageNet dataset, leveraging transfer learning to boost performance.
+- **Efficient Architecture**: The EfficientNet architecture scales efficiently and uses a compound scaling method to balance network depth, width, and resolution.
+- **Loss Function**: **Cross-Entropy Loss** is used as the loss function to optimize for classification tasks.
+- **Activation Function**: **Softmax** is used in the final layer for multi-class classification (e.g., Alzheimer's Disease, Tumor, Cognitively Normal, etc.).
+
+### Training:
+- The model is trained using the **Adam optimizer** with a learning rate of **1e-4**.
+- A typical batch size of **32** is used, and the model is trained for about **10 epochs**.
+- The dataset is resized to **224x224 pixels** to match the input size of EfficientNet-B0.
+
+---
+
+## 3. Model for Brain Segmentation using Gaussian Mixture Model (GMM)
+
+### Model: **Gaussian Mixture Model (GMM)**
+
+For brain tissue segmentation, the **Gaussian Mixture Model (GMM)** is used. This is an unsupervised machine learning model that assumes all data points (in this case, image pixels) are generated from a mixture of several Gaussian distributions.
+
+### Key Features:
+- **Unsupervised Learning**: GMM is an unsupervised model, meaning it does not require labeled data for training. It clusters the data into different categories based on pixel intensity.
+- **Clustering**: GMM assumes that the image consists of multiple distinct regions (e.g., gray matter, white matter, and CSF). The model fits a Gaussian distribution to each of these regions and classifies pixels into the corresponding cluster.
+- **Number of Clusters**: For brain segmentation, GMM is configured with **3 clusters** corresponding to the three major tissue types in the brain:
+  - **Gray Matter**
+  - **White Matter**
+  - **Cerebrospinal Fluid (CSF)**
+
+### Training:
+- The **Gaussian Mixture Model** is fit to the pixel intensity values of the MRI images.
+- The model is then used to classify each pixel into one of the three brain tissue types.
+- After clustering, the results are reshaped into the original 2D image format for visualization.
+
+---
+
+
 
 
 
