@@ -195,11 +195,12 @@ The output of the **2D UNET** model is a **segmented version** of the input MRI 
 
 - **Original MRI Image** vs **Segmented Image**:
 
-  ![Original vs Segmented Example](./images/output_segmented_subject_001.png)
+  ![Original vs Segmented Example](./Images/normal.jpg)
 
 - **Ground Truth** (if available) and **Predicted Segmentation Mask**: These are compared to visualize the model’s accuracy.
 
-  ![Ground Truth vs Predicted Segmentation](./images/output_segmented_subject_002.png)
+  ![Ground Truth vs Predicted Segmentation](./Images/wh1.jpg)
+   ![Ground Truth vs Predicted Segmentation](./Images/wh2.jpg)
 
 # Output for Brain Anomaly Detection using EfficientNet-B0
 
@@ -208,8 +209,9 @@ The output of the **2D UNET** model is a **segmented version** of the input MRI 
 The output of the **EfficientNet-B0** model is a **classification result** for each MRI image in the test set, identifying the condition (e.g., **Alzheimer's Disease**, **Cognitively Normal**, **Tumor**, etc.).
 
 ### Example Output Files:
-![Confusion Matrix Example](./images/output_confusion_matrix.png)
-![Loss/Accuracy Curve Example](./images/output_loss_accuracy_curve.png)
+  ![Original vs Segmented Example](./Images/normal.jpg)
+  ![Ground Truth vs Predicted Segmentation](./Images/tumor.jpg)
+   ![Ground Truth vs Predicted Segmentation](./Images/AD.jpg)
 
 # Output for Brain Segmentation using Gaussian Mixture Model (GMM)
 
@@ -228,11 +230,13 @@ The output of the **Gaussian Mixture Model (GMM)** is a segmented version of the
 
 - **Original MRI Image** vs **Segmented Image**: The segmented image shows the regions identified as **gray matter**, **white matter**, and **CSF**.
 
-  ![Original vs Segmented Example](./images/output_gmm_segmented_no437.png)
+    ![Ground Truth vs Predicted Segmentation](./Images/seg_img1.jpg)
+  
+
 
 - **Clustered Image**: The image is divided into clusters, each representing a different tissue type. The final segmentation helps visualize the brain’s tissue structure.
+ ![Ground Truth vs Predicted Segmentation](./Images/seg_img2.jpg)
 
-  ![Clustered Image Example](./images/output_gmm_segmented_y232.png)
 
 ### Example Directory Structure for Output Files:
 
