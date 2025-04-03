@@ -143,7 +143,7 @@ For the brain segmentation task, a **2D UNET** architecture is used. UNET is a p
 ### Model: **EfficientNet-B0**
 
 For anomaly detection, the **EfficientNet-B0** model is employed. EfficientNet is a state-of-the-art convolutional neural network (CNN) architecture that is highly efficient and effective for image classification tasks.
-![Effi_Arc](./images/output_gmm_segmented_no437.png)
+![Effi_Arc](./Images/Effi.png)
 
 ### Key Features:
 - **Transfer Learning**: EfficientNet-B0 is used with **pre-trained weights** from the ImageNet dataset, leveraging transfer learning to boost performance.
@@ -163,7 +163,7 @@ For anomaly detection, the **EfficientNet-B0** model is employed. EfficientNet i
 ### Model: **Gaussian Mixture Model (GMM)**
 
 For brain tissue segmentation, the **Gaussian Mixture Model (GMM)** is used. This is an unsupervised machine learning model that assumes all data points (in this case, image pixels) are generated from a mixture of several Gaussian distributions.
-![Gau_Arc](./images/output_gmm_segmented_no437.png)
+![Gau_Arc](./Images/GMM.png)
 
 ### Key Features:
 - **Unsupervised Learning**: GMM is an unsupervised model, meaning it does not require labeled data for training. It clusters the data into different categories based on pixel intensity.
